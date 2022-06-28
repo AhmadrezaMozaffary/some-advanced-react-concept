@@ -17,9 +17,9 @@ const emailReducer = (state, action) => {
 
 const passReducer = (state, action) => {
   if (action.type === "USER_INPUT")
-    return { value: action.val, isValid: action.val.includes("@") };
+    return { value: action.val, isValid: action.val.trim().length > 6 };
   if (action.type === "INPUT_BLUR")
-    return { value: state.value, isValid: state.value.includes("@") };
+    return { value: state.value, isValid: state.value.trim().length > 6 };
   return {
     value: "",
     isValid: null,
